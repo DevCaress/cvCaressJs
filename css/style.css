@@ -1,0 +1,130 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+
+/* profile */
+
+main{
+    background-color: #242222;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: auto;
+}
+
+main section{
+    padding: 1rem 2rem;
+    color: #fff;
+    text-align: center;
+}
+
+main section img{
+    width: 70%;
+    height: auto;
+    border-radius: 15px;
+}
+
+main section h1{
+    color: #fff;
+    font-size: 35px;
+    margin: 10px 0;
+}
+
+main > section > h2{
+    color: #a51b1b;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+
+main section:nth-child(2) {
+    font-size: 22px;
+    text-align: left;
+}
+
+main section:nth-child(2) > div {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main section:nth-child(2) div .outProgress {
+    width: 60%;
+    height: 10px;
+    background-color: #fff;
+}
+
+main section:nth-child(2) div .inProgress {
+    background-color: #a51b1b;
+    border: 5px solid #a51b1b;;
+}
+
+
+/* other */
+
+.otherItem{
+    width: 90%;
+    margin:1rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 15px;
+    color: #000;
+}
+.otherItem h2{
+    font-size: 1.3rem;
+    color: #a51b1b;
+    margin-bottom: .7rem;
+}
+
+.otherItem p:nth-child(3){
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+/* contact */
+
+main section .btnContact{
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: .5rem;
+}
+
+main section .btnContact img{
+    width: 15%;
+    margin-right: 1.5rem;
+}
+
+
+
+/* nav */
+
+nav{
+    position: fixed;
+    bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 15px;
+    background-color: #ffffff82;
+}
+nav > div{
+    margin: 0 5px;
+}
+nav > div > img{
+    display: block;
+    margin: auto;
+    pointer-events: none;
+}
+nav > div > p{
+    pointer-events: none;
+    font-size: 12px;
+    text-align: center;
+}
