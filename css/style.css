@@ -13,6 +13,7 @@ main{
     height: 100vh;
     max-height: 100vh;
     overflow: auto;
+    padding-bottom: 4rem;
 }
 
 main section{
@@ -60,13 +61,27 @@ main section:nth-child(2) div .outProgress {
 
 main section:nth-child(2) div .inProgress {
     background-color: #a51b1b;
-    border: 5px solid #a51b1b;;
+    border: 5px solid #a51b1b;
 }
 
 
+
+/* tech */
+
+.techItem > div{
+    font-size: 1.2rem;
+}
+.techItem > .titleTech{
+    font-size: 1.4rem;
+    color: #a51b1b;
+    font-weight: bold;
+    border-bottom: 2px solid #a51b1b;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+}
 /* other */
 
-.otherItem{
+.otherItem, .eduItem, .techItem{
     width: 90%;
     margin:1rem auto;
     padding: 1rem;
@@ -74,13 +89,15 @@ main section:nth-child(2) div .inProgress {
     border-radius: 15px;
     color: #000;
 }
-.otherItem h2{
+.otherItem h2,
+.eduItem h2{
     font-size: 1.3rem;
     color: #a51b1b;
     margin-bottom: .7rem;
 }
 
-.otherItem p:nth-child(3){
+.otherItem p:nth-child(3),
+.eduItem > p{
     font-size: 1.2rem;
     font-weight: normal;
 }
@@ -113,7 +130,8 @@ nav{
     width: 90%;
     margin-left: 5%;
     border-radius: 15px;
-    background-color: #ffffff82;
+    background-color: #a51b1b;
+    color: #fff;
 }
 nav > div{
     margin: 0 5px;

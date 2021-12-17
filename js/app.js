@@ -15,14 +15,119 @@ const info = {
         { id: 'other', txt: 'Otros', icon: 'assets/sec1.png' },
         { id: 'cont', txt: 'Contacto', icon: 'assets/sec1.png' }
     ],
-    other:[
-        {date: 'Octubre 2021', title: 'MENTOR - BBVA', txt: 'Hackathon BBVA 2021 Mentor en UX/UI y Front-end'},
-        {date: 'Octubre 2021', title: 'MENTOR - BBVA', txt: 'Hackathon BBVA 2021 Mentor en UX/UI y Front-end'},
-        {date: 'Octubre 2021', title: 'MENTOR - BBVA', txt: 'Hackathon BBVA 2021 Mentor en UX/UI y Front-end'},
-        {date: 'Octubre 2021', title: 'MENTOR - BBVA', txt: 'Hackathon BBVA 2021 Mentor en UX/UI y Front-end'},
-        {date: 'Octubre 2021', title: 'MENTOR - BBVA', txt: 'Hackathon BBVA 2021 Mentor en UX/UI y Front-end'},
-        {date: 'Octubre 2021', title: 'MENTOR - BBVA', txt: 'Hackathon BBVA 2021 Mentor en UX/UI y Front-end'},
-        {date: 'Octubre 2021', title: 'MENTOR - BBVA', txt: 'Hackathon BBVA 2021 Mentor en UX/UI y Front-end'},
+    exp: [
+        { title: 'Experiencia', txt: 'info' },
+    ],
+    tech: [
+        { title: 'Tecnologías', txt: 'info' },
+        {
+            txt: 'HTML 5',
+            skills: [
+                'HTML 5',
+                'Estandares W3C',
+                'SEO'
+            ]
+        },
+        {
+            txt: 'CSS 3',
+            skills: [
+                'CSS 3',
+                'BEM',
+                'SASS, Stylus',
+                'Bootstrap',
+                'Tailwind',
+                'Foundation',
+                'Materialize',
+            ]
+        },
+        {
+            txt: 'Javascript',
+            skills: [
+                'Vue',
+                'VUEX',
+                'Vue Router',
+                'VUE 3',
+            ]
+        },
+        {
+            txt: 'Javascript',
+            skills: [
+                'React',
+                'Redux',
+                'Router',
+                'Material UI',
+            ]
+        },
+        {
+            txt: 'Javascript',
+            skills: [
+                'DevOps',
+                'Git',
+                'Github, Bitbucket, Gitlab',
+                'Amazon (S3, EC2)',
+                'Docker',
+                'Shell Scripting',
+                'Linux',
+                'CI/CD',
+                'Jira',
+                'Jenkins',
+                'Bamboo',
+            ]
+        },
+        {
+            txt: 'Javascript',
+            skills: [
+                'UX / UI',
+                'Research',
+                'Suite Adobe',
+                'Sketch',
+                'Zepellin',
+                'Figma',
+            ]
+        },
+        {
+            txt: 'Javascript',
+            skills: [
+                'Bases de datos',
+                'Sql Y NoSql',
+                'MySql',
+                'MongoDb',
+                'MariaDb',
+            ]
+        },
+        {
+            txt: 'Javascript',
+            skills: [
+                'Back-end',
+                'PHP (Laravel)',
+                'Python (Django)',
+                'Express',
+            ]
+        },
+        {
+            txt: 'Javascript',
+            skills: [
+                'Seguridad web',
+                'Auditorías',
+                'Pentesting',
+            ]
+        },
+    ],
+    edu: [
+        { title: 'Educación', txt: 'info' },
+        { title: '2016 - 2018 (Trunca)', uni: ' UNAM - FES Áragon', txt: 'Ingeniería en computación' },
+        { title: '2017 - 2019 (Trunca)', uni: 'UNADM', txt: 'Mercadotecnia internacional' },
+    ],
+    other: [
+        { title: 'Participación en Eventos', txt: 'info' },
+        { date: 'Diciembre 2021', title: 'MENTOR - DATATÓN', txt: 'Datatón Anticorrupción 2021 Mentor en UX/UI y Front-end' },
+        { date: 'Octubre 2021', title: 'MENTOR - BBVA', txt: 'Hackathon BBVA 2021 Mentor en UX/UI y Front-end' },
+        { date: 'Octubre 2021', title: 'SPEAKER <br> CYBERSEC ON BITS', txt: 'Ponencia: “Cross-Site Scripting” Panel de preguntas' },
+        { date: 'Julio 2021', title: 'SPEAKER - TALENT LAND', txt: 'Primer ponencia: “Unboxing del mundo laboral” <br> Segunda ponencia: “Áreas del desarrollo de software y como escoger una”' },
+        { date: 'Febrero 2021', title: 'SPEAKER - C#MFECO', txt: '“Introducción a Svelte”' },
+        { date: 'Noviembre 2020', title: 'SPEAKER - UNIVERSIDAD DE LONDRES', txt: '“Creando un modelo de inteligencia artificial”' },
+        { date: 'Febrero 2019', title: 'PARTICIPANTE - SENADO', txt: '“La tecnología para la transparencia y el combate a la corrupción”' },
+        { date: 'Junio 2018', title: 'SPEAKER - UNAM', txt: '“El juego de la vida”' },
     ],
     contact: {
         contact: [
@@ -37,7 +142,14 @@ const info = {
 
 const clearDom = () => document.getElementsByTagName('main')[0].innerHTML = '';
 
+const createTitle = (title) => {
+    const element = document.createElement('div');
+    element.innerHTML = `
+    <h2>${title} </h2> 
+    `;
 
+    return element;
+}
 
 const createSkill = (txt, percent) => {
     const element = document.createElement('div');
@@ -73,6 +185,31 @@ const createProfile = () => {
     return element;
 }
 
+const createTechs = (skills) => {
+    console.log(skills);
+    const container = document.createElement('div');
+    container.classList.add('techItem');
+    for (const [index, value] of skills.entries()) {
+        const element = document.createElement('div');
+        element.innerHTML = value;
+        !index && element.classList.add('titleTech');
+        container.appendChild(element);
+    }
+    return container;
+}
+
+const createEdu = (title, txt, uni) => {
+    const element = document.createElement('div');
+    element.classList.add('eduItem')
+    element.innerHTML = `
+    <p>${title}</p> 
+    <h2>${uni}</h2>
+    <p>${txt}</p>
+    `;
+
+    return element;
+}
+
 const createIconText = (txt, icon) => {
     const element = document.createElement('a');
     element.classList.add('btnContact');
@@ -86,7 +223,7 @@ const createIconText = (txt, icon) => {
     return element;
 }
 
-const createOther= (date, title, txt) => {
+const createOther = (date, title, txt) => {
     const element = document.createElement('div');
     element.classList.add('otherItem');
     /* element.id = id; */
@@ -126,14 +263,52 @@ const renderSection = (event) => {
         case 'cont':
             renderElement('section', document.getElementsByTagName('main')[0]);
             for (const iterator of info.contact.contact) {
-                appendElement(createIconText(iterator.txt, iterator.icon), document.getElementsByTagName('section')[0]);
+                if (iterator.txt == 'info') {
+                    appendElement(createTitle(iterator.title), document.getElementsByTagName('section')[0]);
+                } else {
+                    appendElement(createIconText(iterator.txt, iterator.icon), document.getElementsByTagName('section')[0]);
+                }
+            }
+            break;
+        case 'exp':
+            renderElement('section', document.getElementsByTagName('main')[0]);
+            for (const iterator of info.exp) {
+                if (iterator.txt == 'info') {
+                    appendElement(createTitle(iterator.title), document.getElementsByTagName('section')[0]);
+                } else {
+                    appendElement(createOther(iterator.date, iterator.title, iterator.txt), document.getElementsByTagName('section')[0]);
+                }
+            }
+            break;
+        case 'tech':
+            renderElement('section', document.getElementsByTagName('main')[0]);
+            for (const iterator of info.tech) {
+                if (iterator.txt == 'info') {
+                    appendElement(createTitle(iterator.title), document.getElementsByTagName('section')[0]);
+                } else {
+                    appendElement(createTechs(iterator.skills), document.getElementsByTagName('section')[0]);
+                }
+            }
+            break;
+        case 'edu':
+            renderElement('section', document.getElementsByTagName('main')[0]);
+            for (const iterator of info.edu) {
+                if (iterator.txt == 'info') {
+                    appendElement(createTitle(iterator.title), document.getElementsByTagName('section')[0]);
+                } else {
+                    appendElement(createEdu(iterator.title, iterator.txt, iterator.txt, iterator.uni), document.getElementsByTagName('section')[0]);
+                }
             }
             break;
 
         case 'other':
             renderElement('section', document.getElementsByTagName('main')[0]);
             for (const iterator of info.other) {
-                appendElement(createOther(iterator.date, iterator.title, iterator.txt), document.getElementsByTagName('section')[0]);
+                if (iterator.txt == 'info') {
+                    appendElement(createTitle(iterator.title), document.getElementsByTagName('section')[0]);
+                } else {
+                    appendElement(createOther(iterator.date, iterator.title, iterator.txt), document.getElementsByTagName('section')[0]);
+                }
             }
 
         default:
